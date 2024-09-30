@@ -1,0 +1,22 @@
+apiVersion: k8sopwebgame.op.k8s.at.bronzels/v1
+kind: WebGame
+metadata:
+  labels:
+    app.kubernetes.io/name: k8sopwebgame
+    app.kubernetes.io/instance: k8sopwebgame-sample
+    app.kubernetes.io/part-of: k8sopwebgame
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: k8sopwebgame-sample
+  name: k8sopwebgame-sample
+spec:
+  # TODO(user): Add fields here
+  displayName: test-k8sopwebgame-sample
+  domain: op.k8s.at.bronzels
+  gameType: super-mario
+  ingressClass: nginx
+  indexPage: /index.html
+  serverPort: 80
+  image: harbor.my.org:1080/webgamedevelop/2048:latest
+  replicas: 1
+  imagePullSecrets:
+  - name: harbor-secret
